@@ -1,27 +1,10 @@
-version: 1.2
+version: 0.2
 
 phases:
-  pre_build:
-    commands:
-      - echo "Efetuando login no Amazon ECR..."
-      - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
-      - IMAGE_TAG=$(echo $CODEBUILD_BUILD_ID | awk -F: '{print $2}')
   build:
     commands:
-      - echo "Build iniciado em `date`"
-      - echo "Construindo a imagem Docker..."
-      - docker build -t $ECR_REPO_URI:$IMAGE_TAG .
-      - docker tag $ECR_REPO_URI:$IMAGE_TAG $ECR_REPO_URI:latest
-  post_build:
-    commands:
-      - echo "Build concluído em `date`"
-      - echo "Enviando a imagem Docker para o ECR..."
-      - docker push $ECR_REPO_URI:$IMAGE_TAG
-      - docker push $ECR_REPO_URI:latest
-      - echo "Criando o arquivo de definição da imagem..."
-      - printf '[{"name":"frontend-container","imageUri":"%s"}]' "$ECR_REPO_URI:$IMAGE_TAG" > imagedefinitions.json
+      - echo "Teste de sintaxe do Buildspec bem-sucedido!"
 
-# Define o artefato de saída que será usado pelo estágio de Deploy do pipeline
 artifacts:
   files:
-    - imagedefinitions.json
+    - '**/*'
