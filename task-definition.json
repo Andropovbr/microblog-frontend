@@ -1,5 +1,6 @@
 {
     "family": "microblog-frontend-task",
+    "executionRoleArn": "${ECS_EXECUTION_ROLE_ARN}",
     "containerDefinitions": [
         {
             "name": "frontend-container",
