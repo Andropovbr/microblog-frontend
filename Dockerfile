@@ -6,7 +6,7 @@ RUN npm install
 COPY . .
 RUN npm run build
 
-# Estágio 2: Servidor de Produção
+# Estágio 2: Servidor de Producao
 FROM nginx:1.23-alpine
 COPY --from=builder /app/build /usr/share/nginx/html
 EXPOSE 80
