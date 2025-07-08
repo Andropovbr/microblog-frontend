@@ -3,7 +3,7 @@ version: 0.2
 phases:
   pre_build:
     commands:
-      - echo "Efetuando login no Amazon ECR..."
+      - echo "Efetuando login no Amazon ECR"
       # Envolvendo o comando em aspas simples para garantir que o pipe '|'
       # seja tratado como um caractere literal pelo analisador YAML.
       - 'aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com'
