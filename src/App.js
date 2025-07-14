@@ -64,7 +64,7 @@ function App() {
       </header>
       <main className="App-content">
         
-        {/* NOVO: Formulário de criação de post */}
+        {/* NOVO: Formulário de criacao de post */}
         <div className="form-container">
           <h2>Criar Novo Post</h2>
           <form onSubmit={handlePostSubmit}>
