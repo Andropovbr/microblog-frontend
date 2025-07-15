@@ -46,7 +46,7 @@ function App() {
         throw new Error('Falha ao criar o post');
       }
 
-      // Limpa os campos do formulário e recarrega os posts
+      // Limpa os campos do formulario e recarrega os posts
       setNewPostTitle('');
       setNewPostContent('');
       fetchPosts(); // Recarrega a lista para mostrar o novo post
